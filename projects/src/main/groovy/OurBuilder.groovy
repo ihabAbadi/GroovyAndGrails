@@ -1,4 +1,4 @@
-
+import groovy.transform.builder.Builder
 
 class Product {
     String name
@@ -9,7 +9,7 @@ class Product {
         this.name = name
     }
 }
-
+@Builder
 class Shop {
     List products
     String name
@@ -19,7 +19,6 @@ class Shop {
         products = new ArrayList()
     }
 }
-
 
 class ShopBuilder extends BuilderSupport {
 

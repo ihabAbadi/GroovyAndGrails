@@ -1,4 +1,7 @@
+import groovy.transform.Canonical
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
+import groovy.transform.TupleConstructor
 
 //DSL
 /*
@@ -27,8 +30,11 @@ c.make {
 }
 
 println(c.ingredient)*/
-@ToString
-class Email {
+//@ToString
+//@TupleConstructor
+//@EqualsAndHashCode
+@Canonical
+class Email implements GroovyInterceptable {
     String from
     String to
     List cc
@@ -69,7 +75,9 @@ class Email {
     }
 }
 
-Email e = new Email()
+Email e = new Email('test')
+Email e2 = new Email('from', '')
+
 e.send {
     from "ihab@utopios.net"
     to "toto@tata.fr"

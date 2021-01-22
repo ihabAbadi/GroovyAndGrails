@@ -1,3 +1,6 @@
+import groovy.transform.CompileStatic
+import groovy.transform.TypeChecked
+
 //Groovy utilise ses propres classLoaders
 
 /*
@@ -45,19 +48,19 @@ display(a)*/
 /*
 int a = 'abadi'
 println(a + 10)*/
-class Person {
-    private String firstName
-    String lastName
-
-    String getFirstName() {
-        return "Mr "+ firstName
-    }
-}
+//class Person {
+//    private String firstName
+//    String lastName
+//
+//    String getFirstName() {
+//        return "Mr "+ firstName
+//    }
+//}
 
 //def persons = [new Person(firstName: 'abadi', lastName: 'ihab'), new Person(firstName: 'titi', lastName: 'tata')]
-def p = new Person(firstName: 'abadi')
-
-println(p.getFirstName())
+//def p = new Person(firstName: 'abadi')
+//
+//println(p.getFirstName())
 
 /*def range = (1..10)
 (1..<10).each {println(it)}*/
@@ -75,6 +78,13 @@ def ourName = person.name ?: 'any name'
 println(ourName)*/
 
 /*println(1 <=> 3)*/
+@TypeChecked
+//@CompileStatic
+class Person {
 
+    def method() {
+        int a = ''
+    }
+}
 
 
