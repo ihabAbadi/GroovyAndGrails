@@ -1,0 +1,1 @@
+ourConfig.props = "val1"
