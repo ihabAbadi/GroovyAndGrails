@@ -10,7 +10,6 @@ class FirstService {
     def method1() {
         RequestContextHolder.currentRequestAttributes().getSession().test = "value of test session 2"
         throw new RuntimeException("Error seting test session")
-
 //        "Hello from service"
     }
 
