@@ -3,7 +3,7 @@ package grailsdemo
 class FirstFilters {
 
     def filters = {
-        allExceptAuthenticationController(controller:'Authentication', invert : true) {
+        allExceptAuthenticationController(controller:'Authentication', invert : true ) {
             before = {
                 if(!session.user) {
                     redirect(action: 'login', controller: 'Authentication')
