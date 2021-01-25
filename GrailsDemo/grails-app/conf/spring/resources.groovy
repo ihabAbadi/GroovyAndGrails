@@ -1,6 +1,8 @@
+import com.utopios.factories.HomeFactory
+
 // Place your Spring DSL code here
 beans = {
-    environments {
-        
+    homeFactory(HomeFactory) {
+        firstService = ref("firstService")
     }
 }
