@@ -8,12 +8,16 @@ class ProductController {
     ProductService productService
     //Action to get All Products to Index, And Products by Category
     def index() {
-        render(view: 'products', model: productService.findProductsByCategory(params.categoryId))
+        def response = productService.findProductsByCategory(params.categoryId)
+        flash.message = response.message
+        render(view: 'products', model: response)
     }
 
     //Action for searching products
     def search(@RequestParameter("search") String search) {
-        render(view: 'products', model: productService.searchProducts(search))
+        def response = productService.searchProducts(params.search)
+        flash.message = response.message
+        render(view: 'products', model: response)
     }
 
     //Action to get Product
@@ -30,6 +34,6 @@ class ProductController {
     }
 
     def handleNotFoundProductsException(NotFoundProductsException e) {
-        render(view: 'products', model: productService.findProducts()) 
+        render(view: 'products', model: productService.findProducts())
     }
 }

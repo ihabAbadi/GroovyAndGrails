@@ -26,6 +26,10 @@ class CategoryRepository implements IRepository<Category> {
 
     @Override
     List<Category> readAll(Object closure) {
-        return null
+        [
+                new Category(title: 'cat 1'),
+                new Category(title: 'cat 2'),
+                new Category(title: 'cat 3')
+        ]
     }
 }
