@@ -3971,3 +3971,13 @@ n:2428:org/codehaus/groovy/runtime/callsite/StaticMetaClassSite
 y:12882:org/codehaus/groovy/runtime/MethodRankHelper
 n:445:org/codehaus/groovy/runtime/MethodRankHelper$NullObject
 n:1768:org/codehaus/groovy/runtime/MethodRankHelper$RankableMethod
+n:289:org/codehaus/groovy/classgen/asm/OptimizingStatementWriter$1
+n:17930:grails/converters/JSON
+n:499:org/codehaus/groovy/grails/web/converters/IncludeExcludeConverter
+n:732:org/codehaus/groovy/grails/web/converters/ConfigurableConverter
+n:3082:org/codehaus/groovy/grails/web/converters/AbstractConverter
+n:1199:org/codehaus/groovy/grails/web/converters/configuration/ConverterConfiguration
+n:2079:org/codehaus/groovy/grails/web/converters/Converter$CircularReferenceBehaviour
+n:6054:org/codehaus/groovy/grails/web/json/JSONWriter
+n:812:org/codehaus/groovy/grails/web/json/JSONException
+n:167:org/codehaus/groovy/grails/web/json/JSONElement

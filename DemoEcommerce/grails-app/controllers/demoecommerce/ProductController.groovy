@@ -1,6 +1,7 @@
 package demoecommerce
 
 import formation.exceptions.NotFoundProductsException
+import grails.converters.JSON
 import grails.web.RequestParameter
 
 class ProductController {
@@ -11,6 +12,13 @@ class ProductController {
         def response = productService.findProductsByCategory(params.categoryId)
         flash.message = response.message
         render(view: 'products', model: response)
+    }
+
+    def indexAjax() {
+        def response = productService.findProductsByCategory(params.categoryId)
+        //flash.message = response.message
+        //render(template: 'partialProducts', model: response)
+        render response as JSON
     }
 
     //Action for searching products

@@ -32,7 +32,9 @@
         </div>
     </section>
 </main>
-
+<div id="spinner" style="position: fixed;top: 50px;right: 50px;font-size: 60px; display: none">
+    <i class="fas fa-spinner"></i>
+</div>
 
 %{--Inclure footer--}%
 </body>

@@ -7,10 +7,8 @@
 
 <body>
 
-        <section class="row">
-            <g:each in="${products}" var="product">
-                <g:render template="partialProduct" model="[product:product]"></g:render>
-            </g:each>
+        <section class="row" id="resultProducts">
+            <g:render template="partialProducts" model="[products:products]" ></g:render>
         </section>
 </body>
 </html>

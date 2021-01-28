@@ -37,11 +37,12 @@ class ProductService {
     }
 
     private def getProducts(def closure) {
-        if(closure) {
+        /*if(closure) {
             productRepository.readAll({or{}})
         }
         else {
             throw new NotFoundProductsException("miss closure")
-        }
+        }*/
+        productRepository.readAll({or{}})
     }
 }
