@@ -30,6 +30,6 @@ class ProductController {
     }
 
     def handleNotFoundProductsException(NotFoundProductsException e) {
-        render(view: 'products', model: productService.findProducts())
+        render(view: 'products', model: productService.findProducts()) 
     }
 }
