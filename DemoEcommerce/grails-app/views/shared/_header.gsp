@@ -11,7 +11,7 @@
             <span class="badge badge-light" id="resultCart">
                 <g:if test="${session.cart}">
                     ${session.cart.size()}
-                </g:if>
+                </g:if> 
             </span>
         </div>
     </section>
