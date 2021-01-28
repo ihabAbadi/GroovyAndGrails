@@ -17,7 +17,7 @@ class CategoryService {
         if(!categoryCommand.validate()) {
             ValidationErrors customErrors = new ValidationErrors(categoryCommand)
             customErrors.putAt('title', 'Notre erreur title')
-            categoryCommand.setErrors(customErrors)
+            categoryCommand.errors = customErrors
             return  false
         }
         else {
