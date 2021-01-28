@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="row">
-        <g:remoteLink action="addProduct" id="1" controller="basket" update="resultCart" class="btn btn-secondary col">Ajouter au panier</g:remoteLink>
+        <g:remoteLink onSuccess="requestSuccess(data)" onComplete="requestComplete()" onLoading="requestLoading(XMLHttpRequest)" action="addProduct" id="1" controller="basket"  class="btn btn-secondary col">Ajouter au panier</g:remoteLink>
     </div>
 </body>
 </html>
