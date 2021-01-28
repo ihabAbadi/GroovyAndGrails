@@ -26,6 +26,9 @@ class ProductRepository implements IRepository<Product> {
 
     @Override
     List<Product> readAll(Object closure) {
-        return null
+        return [
+            new Product(title: 'product 1', description: 'description 1', price: 10),
+            new Product(title: 'product 2', description: 'description 2', price: 30),
+        ]
     }
 }

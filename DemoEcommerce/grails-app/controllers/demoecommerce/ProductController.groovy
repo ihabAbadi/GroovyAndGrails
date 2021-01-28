@@ -1,5 +1,6 @@
 package demoecommerce
 
+import formation.exceptions.NotFoundProductsException
 import grails.web.RequestParameter
 
 class ProductController {
@@ -11,12 +12,12 @@ class ProductController {
     }
 
     //Action for searching products
-    def search(@RequestParameter("search") search) {
+    def search(@RequestParameter("search") String search) {
         render(view: 'products', model: productService.searchProducts(search))
     }
 
     //Action to get Product
-    def detail(@RequestParameter("id") id) {
+    def detail(@RequestParameter("id") def id) {
         render(view: 'product', model: productService.findProduct(id))
     }
 
@@ -28,7 +29,7 @@ class ProductController {
 
     }
 
-    def handleNotFoundProductsException() {
+    def handleNotFoundProductsException(NotFoundProductsException e) {
         render(view: 'products', model: productService.findProducts())
     }
 }

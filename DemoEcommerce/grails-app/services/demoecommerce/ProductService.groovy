@@ -13,7 +13,7 @@ class ProductService {
     }
 
     def findProductsByCategory(def category) {
-        [products :  getProducts({}), message : category]
+        [products :  getProducts(null), message : category]
     }
     def findProducts() {
         [products :  productRepository.readAll(null)]

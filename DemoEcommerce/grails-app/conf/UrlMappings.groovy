@@ -7,6 +7,8 @@ class UrlMappings {
             }
         }
 
+        "/search/$search"(controller: 'product', action: 'search')
+
         "/"(controller: 'product', action: 'index')
         "500"(view:'/error')
 	}
