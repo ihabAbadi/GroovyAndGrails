@@ -21,7 +21,7 @@ class ProductRepository implements IRepository<Product> {
 
     @Override
     Product read(int id) {
-        return null
+        return new Product(title: 'product 1', description: 'description 1', price: 10)
     }
 
     @Override

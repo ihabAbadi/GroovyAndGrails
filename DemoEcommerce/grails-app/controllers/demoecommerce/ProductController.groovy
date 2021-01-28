@@ -21,7 +21,7 @@ class ProductController {
     }
 
     //Action to get Product
-    def detail(@RequestParameter("id") def id) {
+    def detail(@RequestParameter("id") int id) {
         render(view: 'product', model: productService.findProduct(id))
     }
 
