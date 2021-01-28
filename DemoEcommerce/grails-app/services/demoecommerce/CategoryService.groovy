@@ -3,6 +3,7 @@ package demoecommerce
 import formation.commands.CategoryCommand
 import formation.repositories.CategoryRepository
 import grails.transaction.Transactional
+import grails.validation.ValidationErrors
 import org.springframework.validation.Errors
 
 @Transactional
@@ -12,6 +13,15 @@ class CategoryService {
         [categories: categoryRepository.readAll(null)]
     }
     boolean saveCategory(CategoryCommand categoryCommand) {
-        categoryCommand.validate()
+
+        if(!categoryCommand.validate()) {
+            ValidationErrors customErrors = new ValidationErrors(categoryCommand)
+            customErrors.putAt('title', 'Notre erreur title')
+            categoryCommand.setErrors(customErrors)
+            return  false
+        }
+        else {
+            return true
+        }
     }
 }

@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
 <g:if test="${categoryCommand}">
     <g:hasErrors bean="${categoryCommand}">
         <div class="row">
@@ -25,14 +26,24 @@
     </g:hasErrors>
 </g:if>
 <section class="row">
-    <g:form controller="category" action="submitForm" class="col">
+    %{--<g:form controller="category" action="submitForm" class="col">
         <div class="row">
             <g:textField name="title" placeholder="Titre de la catégorie" class="col form-control m-1 p-1"></g:textField>
         </div>
         <div class="row">
+--}%%{--            <g:submitToRemote update="[success:'cssSelectorSuccess', failure:'cssSelectorError']">Valider</g:submitToRemote>--}%%{--
              <button class="col btn btn-success m-1 p-1" type="submit">Valider</button>
         </div>
-    </g:form>
+    </g:form>--}%
+    <g:formRemote name="categoryForm" url="[controller:'category', action:'submitForm']" update="[success:'cssSelectorSuccess', failure:'cssSelectorError']" class="col">
+        <div class="row">
+            <g:textField name="title" placeholder="Titre de la catégorie" class="col form-control m-1 p-1"></g:textField>
+        </div>
+        <div class="row">
+            %{--            <g:submitToRemote update="[success:'cssSelectorSuccess', failure:'cssSelectorError']">Valider</g:submitToRemote>--}%
+            <button class="col btn btn-success m-1 p-1" type="submit">Valider</button>
+        </div>
+    </g:formRemote>
 </section>
 
 </body>
