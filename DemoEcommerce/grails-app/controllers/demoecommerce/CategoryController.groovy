@@ -1,5 +1,8 @@
 package demoecommerce
 
+import formation.commands.CategoryCommand
+import grails.web.RequestParameter
+
 class CategoryController {
 
     CategoryService categoryService
@@ -9,10 +12,15 @@ class CategoryController {
     }
 
     def form() {
-
+        render(view: 'form')
     }
 
-    def submitForm() {
-
+    def submitForm(CategoryCommand categoryCommand) {
+        if(categoryService.saveCategory(categoryCommand)){
+            redirect(action: 'index', controller: 'product')
+        }
+        else {
+            render(view: 'form', model: [categoryCommand:categoryCommand])
+        }
     }
 }
