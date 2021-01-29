@@ -15,7 +15,8 @@ class CategoryController {
         render(view: 'form')
     }
 
-    def submitForm(CategoryCommand categoryCommand) {
+    def submitForm() {
+        CategoryCommand categoryCommand = new CategoryCommand(title: params.title)
         if(categoryService.saveCategory(categoryCommand)){
             redirect(action: 'index', controller: 'product')
         }

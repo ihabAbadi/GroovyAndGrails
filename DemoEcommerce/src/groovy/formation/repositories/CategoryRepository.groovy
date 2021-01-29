@@ -6,7 +6,7 @@ import formation.interfaces.IRepository
 class CategoryRepository implements IRepository<Category> {
     @Override
     void create(Category element) {
-
+        element.save()
     }
 
     @Override
@@ -26,10 +26,6 @@ class CategoryRepository implements IRepository<Category> {
 
     @Override
     List<Category> readAll(Object closure) {
-        [
-                new Category(title: 'cat 1'),
-                new Category(title: 'cat 2'),
-                new Category(title: 'cat 3')
-        ]
+       Category.list()
     }
 }

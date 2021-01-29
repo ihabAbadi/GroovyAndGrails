@@ -7,6 +7,7 @@ import grails.web.RequestParameter
 class ProductController {
 
     ProductService productService
+    CategoryService categoryService
     //Action to get All Products to Index, And Products by Category
     def index() {
         def response = productService.findProductsByCategory(params.categoryId)
@@ -34,11 +35,16 @@ class ProductController {
     }
 
     def form() {
-
+        render(view: 'form', model: [categories:categoryService.findAll()])
     }
 
-    def submitForm() {
-
+    def submitForm(Product product) {
+        if(productService.saveProduct(product)) {
+            redirect(action: 'index')
+        }
+        else {
+            render(view: 'form', model: [product:product])
+        }
     }
 
     def handleNotFoundProductsException(NotFoundProductsException e) {
