@@ -26,7 +26,7 @@ class ProductController {
     def search(@RequestParameter("search") String search) {
         def response = productService.searchProducts(params.search)
         flash.message = response.message
-        render(view: 'products', model: response)
+        render(view: 'products', model: response) 
     }
 
     //Action to get Product
