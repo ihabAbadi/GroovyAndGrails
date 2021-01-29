@@ -3,11 +3,12 @@ package demoecommerce
 import formation.exceptions.NotFoundProductsException
 import formation.repositories.ProductRepository
 import grails.transaction.Transactional
+import org.springframework.web.multipart.commons.CommonsMultipartFile
 
 @Transactional
 class ProductService {
     ProductRepository productRepository
-
+    UploadService uploadService
     def searchProducts(def search) {
         [products : getProducts({}), message : search]
     }
@@ -19,8 +20,16 @@ class ProductService {
         [products :  productRepository.readAll(null)]
     }
 
-    def saveProduct(def product) {
+    def saveProduct(Product product, def files) {
         //Validation du Product et Save du product à l'aide du repository
+        if(product.validate()) {
+            files.eachWithIndex {image, index ->
+                product.addToImages(uploadService.upload(image))
+            }
+            productRepository.create(product)
+            return true
+        }
+        return false
     }
 
     def updateProduct(def product) {

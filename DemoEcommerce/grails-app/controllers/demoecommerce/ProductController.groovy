@@ -35,11 +35,14 @@ class ProductController {
     }
 
     def form() {
-        render(view: 'form', model: [categories:categoryService.findAll()])
+        def categories = categoryService.findCategories()
+        render(view: 'form', model: [categories:categories.categories])
     }
 
-    def submitForm(Product product) {
-        if(productService.saveProduct(product)) {
+    def submitForm() {
+        Product product = new Product()
+        product.properties = params
+        if(productService.saveProduct(product, request.getFiles('imgs'))) {
             redirect(action: 'index')
         }
         else {

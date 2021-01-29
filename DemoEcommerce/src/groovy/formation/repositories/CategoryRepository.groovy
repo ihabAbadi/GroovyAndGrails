@@ -26,6 +26,6 @@ class CategoryRepository implements IRepository<Category> {
 
     @Override
     List<Category> readAll(Object closure) {
-       Category.list()
+       Category.findAll()
     }
 }

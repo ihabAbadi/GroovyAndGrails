@@ -13,7 +13,7 @@
 
 <body>
 <section class="row">
-    <g:form class="col" action="submitForm">
+    <g:form class="col" action="submitForm" enctype="multipart/form-data">
         <div class="row m-1">
             <g:textField name="title" placeholder="Titre du produit" class="form-control col p-1"></g:textField>
         </div>
@@ -22,6 +22,9 @@
         </div>
         <div class="row m-1">
             <textarea name="description" placeholder="Titre du produit" class="form-control col p-1"></textarea>
+        </div>
+        <div class="row m-1">
+            <input type="file" name="imgs" multiple class="col form-control">
         </div>
         <div class="row m-1">
             <select name="categories">

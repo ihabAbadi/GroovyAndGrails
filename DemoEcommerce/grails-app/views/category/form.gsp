@@ -30,9 +30,9 @@
         <div class="row">
             <g:textField name="title" placeholder="Titre de la catégorie" class="col form-control m-1 p-1"></g:textField>
         </div>
-        %{--<div class="row">
+        <div class="row">
             <input type="file" name="image">
-        </div>--}%
+        </div>
         <div class="row">
            %{-- <g:submitToRemote update="[success:'cssSelectorSuccess', failure:'cssSelectorError']">Valider</g:submitToRemote>--}%
              <button class="col btn btn-success m-1 p-1" type="submit">Valider</button>

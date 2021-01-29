@@ -14,7 +14,7 @@ class CategoryService {
     def findCategories() {
         [categories: categoryRepository.readAll(null)]
     }
-    boolean saveCategory(CategoryCommand categoryCommand) {
+    boolean saveCategory(CategoryCommand categoryCommand, def file) {
         if(!categoryCommand.validate()) {
             ValidationErrors customErrors = new ValidationErrors(categoryCommand)
             customErrors.putAt('title', 'Notre erreur title')
@@ -23,7 +23,7 @@ class CategoryService {
         }
         else {
             Category category = new Category(title: categoryCommand.title)
-//            category.image = uploadService.upload(file)
+            category.image = uploadService.upload(file)
             categoryRepository.create(category)
             return true
         }

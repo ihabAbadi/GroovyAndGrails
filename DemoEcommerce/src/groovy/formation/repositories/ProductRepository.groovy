@@ -6,7 +6,7 @@ import formation.interfaces.IRepository
 class ProductRepository implements IRepository<Product> {
     @Override
     void create(Product element) {
-
+        element.save()
     }
 
     @Override
