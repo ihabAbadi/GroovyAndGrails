@@ -11,4 +11,7 @@ class Product {
     static belongsTo = [Category, Order]
     static constraints = {
     }
+    static  mapping = {
+        images batchSize: 10
+    }
 }

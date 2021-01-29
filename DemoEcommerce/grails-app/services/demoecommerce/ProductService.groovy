@@ -9,8 +9,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile
 class ProductService {
     ProductRepository productRepository
     UploadService uploadService
-    def searchProducts(def search) {
-        [products : getProducts({}), message : search]
+    def searchProducts(String search) {
+        [products : searchProductByContent(search), message : search]
     }
 
     def findProductsByCategory(def category) {
@@ -44,7 +44,9 @@ class ProductService {
             throw new Exception("Product not found")
         }
     }
-
+    private def searchProductByContent(String content) {
+        Product.findAllByTitleLikeOrDescriptionLike('%'+content+'%', '%'+content+'%')
+    }
     private def getProducts(def closure) {
         /*if(closure) {
             productRepository.readAll({or{}})

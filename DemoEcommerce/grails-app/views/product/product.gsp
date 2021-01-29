@@ -22,7 +22,9 @@
     </div>
     <div class="row">
         <div class="col">
-            <img class="col" src="${createLink(uri: '/images/logo.png')}">
+            <g:each in="${product.images}" var="image">
+                <img class="col" src="${createLink(uri: "/${image.url}")}">
+            </g:each>
         </div>
     </div>
     <div class="row">
