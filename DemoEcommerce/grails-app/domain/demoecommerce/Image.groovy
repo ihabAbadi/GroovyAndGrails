@@ -1,7 +1,12 @@
 package demoecommerce
 
-class Image {
+class Image implements Comparable {
     String url
     static constraints = {
+    }
+
+    @Override
+    int compareTo(Object o) {
+        return 0
     }
 }

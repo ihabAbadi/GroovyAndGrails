@@ -8,18 +8,20 @@ class ProductController {
 
     ProductService productService
     CategoryService categoryService
-    //Action to get All Products to Index, And Products by Category
+    //Action to get All Products to Index,
     def index() {
-        def response = productService.findProductsByCategory(params.categoryId)
-        flash.message = response.message
+        def response = productService.findProducts()
         render(view: 'products', model: response)
     }
 
+
+    //get Produt By Category
     def indexAjax() {
-        def response = productService.findProductsByCategory(params.categoryId)
-        //flash.message = response.message
-        //render(template: 'partialProducts', model: response)
-        render response as JSON
+
+        def response = productService.findProductsByCategory(Integer.parseInt(params.categoryId))
+        flash.message = response.message
+        render(template: 'partialProducts', model: response)
+        //render response as JSON
     }
 
     //Action for searching products

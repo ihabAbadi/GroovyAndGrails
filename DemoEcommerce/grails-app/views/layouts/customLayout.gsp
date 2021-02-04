@@ -25,7 +25,7 @@
     <g:render template="/shared/breadCrump"></g:render>
     <section class="row">
         <aside class="col-3">
-            <g:include controller="category"></g:include>
+            <g:include controller="category" ></g:include>
         </aside>
         <div class="col-9">
             <g:layoutBody/>
