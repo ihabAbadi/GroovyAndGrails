@@ -3,7 +3,7 @@ package demoecommerce
 import grails.web.RequestParameter
 
 class ReviewController {
-
+    ReviewService reviewService
     def index() { }
 
     def reviewByProduct(@RequestParameter("id") id) {

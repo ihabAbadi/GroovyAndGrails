@@ -29,5 +29,7 @@ class ReviewRepository implements IRepository<Review> {
         return null
     }
 
-
+    List<Review> getReviewByProductId(int id) {
+        throw new Exception()
+    }
 }
