@@ -7,14 +7,33 @@ class Product {
     String title
     Double price
     String description
-    SortedSet images
-    static hasMany = [images:Image, categories:Category, reviews:Review, orders:Order]
+
+    static hasMany = [categories:Category, reviews:Review, orders:Order]
     static belongsTo = [Category, Order]
     static constraints = {
+    }
+
+    List<Image> getImages() {
+        ProductImage.findAllByProduct(this).collect({it.image})
     }
     static  mapping = {
 
     }
 
+    def beforeInsert() {
+
+    }
+
+    def afterInsert() {
+
+    }
+
+    def onLoad() {
+
+    }
+
+    def afterLoad() {
+
+    }
 
 }

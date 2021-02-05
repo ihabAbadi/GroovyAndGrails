@@ -32,10 +32,11 @@ class ProductService {
     def saveProduct(Product product, def files) {
         //Validation du Product et Save du product à l'aide du repository
         if(product.validate()) {
-            files.eachWithIndex {image, index ->
-                product.addToImages(uploadService.upload(image))
-            }
             productRepository.create(product)
+            files.eachWithIndex {image, index ->
+              //product.addToImages(uploadService.upload(image))
+                ProductImage.create(product,uploadService.upload(image))
+            }
             return true
         }
         return false
@@ -58,7 +59,6 @@ class ProductService {
     }*/
 
     def findProductsSql() {
-
         String request = "SELECT * from product"
         def sql = new Sql(dataSource: dataSource)
         def result = sql.call("PROCEDURE")
