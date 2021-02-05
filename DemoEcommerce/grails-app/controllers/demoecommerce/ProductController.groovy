@@ -1,9 +1,10 @@
 package demoecommerce
 
 import formation.exceptions.NotFoundProductsException
+import formation.viewModels.ProductViewModel
 import grails.converters.JSON
 import grails.web.RequestParameter
-
+import formation.tools.Projecter
 class ProductController {
 
     ProductService productService
@@ -33,7 +34,7 @@ class ProductController {
 
     //Action to get Product
     def detail(@RequestParameter("id") int id) {
-        render(view: 'product', model: productService.findProduct(id))
+        render(view: 'product', model: ProductViewModel.build(productService.findProduct(id).product))
     }
 
     def form() {
