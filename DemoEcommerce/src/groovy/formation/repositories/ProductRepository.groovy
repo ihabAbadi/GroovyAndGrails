@@ -74,6 +74,7 @@ class ProductRepository implements IRepository<Product> {
         }
         result.list()*/
 
+
         //def c = Product.createCriteria()
         /*def result = c.list {
             categories{
@@ -84,7 +85,7 @@ class ProductRepository implements IRepository<Product> {
             }
         }*/
         //def c = Product.createCriteria()
-        def result = Product.withCriteria {
+        /*def result = Product.withCriteria {
             categories{
                 eq 'id', (long)cat
             }
@@ -92,16 +93,16 @@ class ProductRepository implements IRepository<Product> {
                 sqlProjection 'title as titre',['titre'], [StringType]
             }
         }
-        result
+        result*/
         //DetachedCriteria
-        /*def c = new DetachedCriteria<Product>().build {
+        def c = new DetachedCriteria<Product>().build {
             categories{
                 eq 'id', (long)cat
             }
         }
 
         def result = c.list()
-        result*/
+        result
 
         //HQL
         /*def result = Product.executeQuery("select p from Product p, Category c where c.id = :id and c in elements(p.categories)",[id:(long)cat])

@@ -3,8 +3,11 @@ package demoecommerce
 import formation.exceptions.NotFoundProductsException
 import formation.viewModels.ProductViewModel
 import grails.converters.JSON
+import grails.plugin.springsecurity.annotation.Secured
 import grails.web.RequestParameter
 import formation.tools.Projecter
+
+@Secured("permitAll")
 class ProductController {
 
     ProductService productService

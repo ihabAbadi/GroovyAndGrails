@@ -29,6 +29,10 @@ class ProductService {
        //[products: findProductsSql()]
     }
 
+    List<Product> findListProducts() {
+        productRepository.readAll(null)
+    }
+
     def saveProduct(Product product, def files) {
         //Validation du Product et Save du product à l'aide du repository
         if(product.validate()) {

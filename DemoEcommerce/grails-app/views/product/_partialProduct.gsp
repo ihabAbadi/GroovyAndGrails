@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col">
-                ${product.price} €
+                ${product.price.encodeAsHtml()} €
             </div>
         </div>
     </div>

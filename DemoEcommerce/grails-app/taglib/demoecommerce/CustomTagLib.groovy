@@ -8,4 +8,8 @@ class CustomTagLib {
     def logo = {attr, body ->
         out << render(template: '/shared/logo', model: [logo:createLink(uri: '/'+toolsService.getLogo())])
     }
+
+    /*def encodeHTML = { attr, body ->
+        out << body.c
+    }*/
 }

@@ -1,3 +1,4 @@
+import demoecommerce.RequestMap
 import formation.listener.CustomPersistenceListener
 import org.codehaus.groovy.grails.commons.GrailsApplication
 
@@ -8,6 +9,8 @@ class BootStrap {
         a.eventTriggeringInterceptor.datastores.each {i,datastore ->
             grailsApplication.mainContext.addApplicationListener(new CustomPersistenceListener(datastore))
         }
+
+        new RequestMap( urlRequest: '/login/auth', roleRequest: 'permitAll').save()
     }
     def destroy = {
     }

@@ -1,3 +1,5 @@
+import grails.plugin.springsecurity.SecurityConfigType
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -117,3 +119,25 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'demoecommerce.AuthUser'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'demoecommerce.AuthUserAuthRole'
+grails.plugin.springsecurity.authority.className = 'demoecommerce.AuthRole'
+grails.plugin.springsecurity.securityConfigType = SecurityConfigType.Annotation
+/*grails.plugin.springsecurity.requestMap.className = 'demoecommerce.RequestMap'
+grails.plugin.springsecurity.requestMap.urlField  = 'urlRequest'
+grails.plugin.springsecurity.requestMap.configAttributeField  = 'roleRequest'*/
+
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                ['permitAll'],
+	'/index':           ['permitAll'],
+	'/index.gsp':       ['permitAll'],
+	'/assets/**':       ['permitAll'],
+	'/**/js/**':        ['permitAll'],
+	'/**/css/**':       ['permitAll'],
+	'/**/images/**':    ['permitAll'],
+	'/**/favicon.ico':  ['permitAll']
+]
+
